@@ -3,6 +3,7 @@
 #include "DynamicArray.h"
 #include "Vertex.h"
 #include "Edge.h"
+#include <iostream>
 
 class Graph
 {

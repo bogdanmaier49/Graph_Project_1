@@ -96,7 +96,7 @@ void DynamicArray<T>::insert(T e, unsigned int index)
 	if (this->length >= this->max_length)
 		this->reallocate();
 
-	for (int i = this->length-1; i >= index; i--)
+	for (int i = this->length; i >= index; i--)
 		elements[i] = elements[i - 1];
 	elements[index] = e;
 	length++;

@@ -13,9 +13,10 @@ Edge::~Edge()
 {
 }
 
+
 bool Edge::operator==(Edge e)
 {
-	if (this->source == e.target && this->target == e.target && this->id==e.id)
+	if (e.getID() == this->getID())
 		return true;
 	return false;
 }

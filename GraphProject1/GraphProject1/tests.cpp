@@ -89,23 +89,29 @@ void TestGraph()
 	assert(g->getInDegree(&v3) == 2);
 	assert(g->getInDegree(&v4) == 0);
 
+	std::cout << "Here";
 	DynamicArray<int> *outboundEdges = g->getOutboundEdges(&v1);
 	for (int i = 0; i < outboundEdges->getLength(); i++)
 		std::cout << outboundEdges->get(i) << " ";
+	delete outboundEdges;
 
 	DynamicArray<int> *inboundEdges = g->getInboundEdges(&v1);
 	for (int i = 0; i < inboundEdges->getLength(); i++)
 		std::cout << inboundEdges->get(i) << " ";
 	std::cout << std::endl;
+	delete inboundEdges;
 
 	DynamicArray<Vertex> *endPoints1 = g->getEdgeEndPoints(1);
 	std::cout << "End points edge(v0-v1): ";
 	for (int i = 0; i < endPoints1->getLength(); i++)
 		std::cout << endPoints1->get(i).getIndex() << " ";
 	std::cout << std::endl;
+	delete endPoints1;
 
 	g->setEdgeValue(0, 100);
 	assert(g->getEdge(0).getCost() == 100);
+
+
 
 	delete g;
 }

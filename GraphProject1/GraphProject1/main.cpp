@@ -2,6 +2,7 @@
 #include "Graph.h"
 #include <stdio.h>
 #include <fstream>
+#include "UI.h"
 
 Graph* readGraph(const char* fileName)
 {
@@ -48,24 +49,20 @@ Graph* readGraph(const char* fileName)
 	return g;
 }
 
-void printGraph(Graph* g) {
-	for (int i = 0; i < g->getNumberOfEdges(); i++)
-	{
-		Edge e = g->getEdge(i);
-		std::cout << "Vert: " << i << ", " << e.getSourceVertex()->getIndex() << " " << e.getTargetVertex()->getIndex() << " " << e.getCost() << "\n";
-	}
-}
-
 int main()
 {
 	// TestDynamicArray();
 	// TestGraph();
+	// getchar();
+	
+	std::cout << "Loading graph ... \n";
+	Graph* g = readGraph("4k.txt");
 
-	std::cout << sizeof(Vertex) + sizeof(Edge) << " \n";
-	Graph* g = readGraph("1m.txt");
+	UI* ui = new UI(g);
+	ui->start();
+	delete ui;
 
-	printGraph(g);
-
-	getchar();
+	
+	
 	return 0;
 }

@@ -51,8 +51,10 @@ int Graph::hasEdge(Vertex* source, Vertex* target)
 	for (int i = 0; i < this->edges->getLength(); i++)
 	{
 		Edge e = this->edges->get(i);
-		if (e.getSourceVertex() == source && e.getTargetVertex() == target)
+		if (e.getSourceVertex()->getIndex() == source->getIndex() && e.getTargetVertex()->getIndex() == target->getIndex())
+		{
 			return e.getID();
+		}
 	}
 
 	return -1;
@@ -64,7 +66,7 @@ int Graph::getInDegree(Vertex* v)
 	for (int i = 0; i < this->edges->getLength(); i++)
 	{
 		Edge e = this->edges->get(i);
-		if (e.getTargetVertex() == v)
+		if (e.getTargetVertex()->getIndex() == v->getIndex())
 			degree++;
 	}
 	return degree;
@@ -76,7 +78,7 @@ int Graph::getOutDegree(Vertex* v)
 	for (int i = 0; i < this->edges->getLength(); i++)
 	{
 		Edge e = this->edges->get(i);
-		if (e.getSourceVertex() == v)
+		if (e.getSourceVertex()->getIndex() == v->getIndex())
 			degree++;
 	}
 	return degree;
@@ -89,7 +91,7 @@ DynamicArray<int>* Graph::getOutboundEdges(Vertex* v)
 	for (int i = 0; i < this->edges->getLength(); i++)
 	{
 		Edge e = this->edges->get(i);
-		if (e.getSourceVertex() == v)
+		if (e.getSourceVertex()->getIndex() == v->getIndex())
 			res->add(e.getID());
 	}
 	return res;
@@ -102,7 +104,7 @@ DynamicArray<int>* Graph::getInboundEdges(Vertex* v)
 	for (int i = 0; i < this->edges->getLength(); i++)
 	{
 		Edge e = this->edges->get(i);
-		if (e.getTargetVertex() == v)
+		if (e.getTargetVertex()->getIndex() == v->getIndex())
 			res->add(e.getID());
 	}
 	return res;
