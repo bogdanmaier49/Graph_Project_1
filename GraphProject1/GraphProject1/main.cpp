@@ -61,8 +61,6 @@ int main()
 	UI* ui = new UI(g);
 	ui->start();
 	delete ui;
-
-	
 	
 	return 0;
 }

@@ -1,3 +1,12 @@
 ﻿  UI.cpp
+  Graph.cpp
+e:\projects\c++\graphproject1\graphproject1\dynamicarray.cpp(41): warning C4018: '>=': signed/unsigned mismatch
+  e:\projects\c++\graphproject1\graphproject1\dynamicarray.cpp(40): note: while compiling class template member function 'bool DynamicArray<Edge>::remove(unsigned int)'
+  e:\projects\c++\graphproject1\graphproject1\graph.cpp(56): note: see reference to function template instantiation 'bool DynamicArray<Edge>::remove(unsigned int)' being compiled
+  e:\projects\c++\graphproject1\graphproject1\graph.cpp(8): note: see reference to class template instantiation 'DynamicArray<Edge>' being compiled
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  tests.cpp
+  main.cpp
   GraphProject1.vcxproj -> E:\Projects\C++\GraphProject1\Debug\GraphProject1.exe
   GraphProject1.vcxproj -> E:\Projects\C++\GraphProject1\Debug\GraphProject1.pdb (Partial PDB)

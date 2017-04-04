@@ -1,0 +1,20 @@
+﻿  DynamicArray.cpp
+  Edge.cpp
+  Graph.cpp
+e:\projects\c++\graphproject1\graphproject1\DynamicArray.cpp(41): warning C4018: '>=': signed/unsigned mismatch
+  e:\projects\c++\graphproject1\graphproject1\DynamicArray.cpp(40): note: while compiling class template member function 'bool DynamicArray<Edge>::remove(unsigned int)'
+  Graph.cpp(56): note: see reference to function template instantiation 'bool DynamicArray<Edge>::remove(unsigned int)' being compiled
+  Graph.cpp(8): note: see reference to class template instantiation 'DynamicArray<Edge>' being compiled
+  main.cpp
+  tests.cpp
+e:\projects\c++\graphproject1\graphproject1\DynamicArray.cpp(41): warning C4018: '>=': signed/unsigned mismatch
+  e:\projects\c++\graphproject1\graphproject1\DynamicArray.cpp(40): note: while compiling class template member function 'bool DynamicArray<std::string>::remove(unsigned int)'
+  tests.cpp(34): note: see reference to function template instantiation 'bool DynamicArray<std::string>::remove(unsigned int)' being compiled
+  tests.cpp(6): note: see reference to class template instantiation 'DynamicArray<std::string>' being compiled
+  UI.cpp
+  Vertex.cpp
+  Generating code
+  All 223 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  GraphProject1.vcxproj -> E:\Projects\C++\GraphProject1\Release\GraphProject1.exe
+  GraphProject1.vcxproj -> E:\Projects\C++\GraphProject1\Release\GraphProject1.pdb (Full PDB)

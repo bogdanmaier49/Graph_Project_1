@@ -21,20 +21,42 @@ void Graph::addVertex(Vertex v)
 }
 void Graph::removeVertex(Vertex v)
 {
+	DynamicArray<int>* in = this->getInboundEdges(&v);
+	DynamicArray<int>* out = this->getOutboundEdges(&v);
+
+	for (int i = 0; i < in->getLength(); i++) {
+		this->removeEdge(this->getEdge(in->get(i)).getID());
+	}
+	for (int i = 0; i < out->getLength(); i++) {
+		this->removeEdge(this->getEdge(out->get(i)).getID());
+	}
+
 	this->verts->remove(v);
 }
+
+
 Vertex Graph::getVertex(unsigned int index)
 {
 	return this->verts->get(index);
 }
 
-void Graph::addEdge(Edge e)
+bool Graph::addEdge(Edge e)
 {
+	for (int i = 0; i < this->edges->getLength(); i++)
+		if (e.getID() == this->edges->get(i).getID())
+			return false;
+
 	this->edges->add(e);
+	return true;
 }
-void Graph::removeEdge(Edge e)
+bool Graph::removeEdge(int id)
 {
-	this->edges->remove(e);
+	for (int i=0; i<this->edges->getLength(); i++)
+		if (this->edges->get(i).getID() == id) {
+			this->edges->remove(i);
+			return true;
+		}
+	return false;
 }
 Edge Graph::getEdge(unsigned int index)
 {
@@ -148,4 +170,13 @@ int Graph::getEdgeValue(Edge e)
 int Graph::getNumberOfEdges()
 {
 	return edges->getLength();
+}
+
+bool Graph::hasVertex(Vertex v)
+{
+	for (int i = 0; i < this->verts->getLength(); i++)
+		if (v.getIndex() == this->verts->get(i).getIndex())
+			return true;
+
+	return false;
 }

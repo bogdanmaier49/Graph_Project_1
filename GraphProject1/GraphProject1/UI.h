@@ -11,6 +11,7 @@ private:
 
 	int readInt(const char* msg);
 	Vertex readVertex(const char* msg);
+	Edge readEdge(const char* msg);
 	void cls();
 
 public:
@@ -24,6 +25,14 @@ public:
 	void printInDegree();
 	void printOutDegree();
 	void printEdgeEndPoints();
+	void printOutboundEdges();
+	void printInboundEdges();
+
+	void addVertex();
+	void removeVertex();
+	void addEdge();
+	void removeEdge();
+	void changeEdgeData();
 
 	void start();
 

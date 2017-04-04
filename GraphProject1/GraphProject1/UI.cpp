@@ -1,7 +1,5 @@
 #include "UI.h"
 
-
-
 UI::UI(Graph* graph)
 {
 	this->graph = graph;
@@ -89,6 +87,15 @@ int UI::readInt(const char* msg)
 	return res;
 }
 
+Edge UI::readEdge(const char* msg)
+{
+	std::cout << msg;
+	int id = this->readInt("ID: ");
+	Vertex v1 = this->readVertex("Source Vertex: ");
+	Vertex v2 = this->readVertex("Target Vertex: ");
+	return Edge(id, &v1, &v2);
+}
+
 void UI::cls()
 {
 	system("@cls||clear");
@@ -103,18 +110,115 @@ Vertex UI::readVertex(const char* msg)
 	return res;
 }
 
+void UI::addVertex()
+{
+	int vertexIndex = this->readInt("Vertex: ");
+
+	for (int i = 0; i < this->graph->getVertexArray()->getLength(); i++)
+		if (this->graph->getVertex(i).getIndex() == vertexIndex) {
+			std::cout << "The vertex " << vertexIndex << " alleary exits.\n";
+			return;
+		}
+
+	this->graph->addVertex(Vertex(vertexIndex));
+	std::cout << "The vertex was added successfuly.\n";
+}
+
+void UI::removeVertex()
+{
+	int vertexIndex = this->readInt("Vertex: ");
+
+	for (int i = 0; i < this->graph->getVertexArray()->getLength(); i++)
+		if (this->graph->getVertex(i).getIndex() == vertexIndex) {
+			this->graph->removeVertex(this->graph->getVertex(vertexIndex));
+			std::cout << "The vertex was removed successfuly.\n";
+			return;
+		}
+
+
+	std::cout << "The vertex " << vertexIndex << " does not exits.\n";
+}
+
+void UI::addEdge()
+{
+	Edge e = this->readEdge("Add edge to the graph: \n");
+	if (this->graph->addEdge(e) == true)
+		std::cout << "The edge was added.\n";
+	else 
+		std::cout << "The edge could not be added.\n";
+}
+
+void UI::removeEdge()
+{
+	int id = this->readInt("Edge id: ");
+	if (this->graph->removeEdge(id) == true)
+		std::cout << "The edge was removd.\n";
+	else
+		std::cout << "The edge could not be removed.\n";
+}
+
+void UI::changeEdgeData()
+{
+
+}
+
+void UI::printOutboundEdges()
+{
+	Vertex v = readVertex("Outbound edges for vertex: ");
+
+	// check if the vertex exits
+	if (this->graph->hasVertex(v) == false)
+	{
+		std::cout << "The given vertex " << v.getIndex() << " does not exits.\n";
+		return;
+	}
+
+	DynamicArray<int> *outIDs = this->graph->getOutboundEdges(&v);
+
+	for (int i = 0; i < outIDs->getLength(); i++)
+		std::cout << outIDs->get(i) << " ";
+
+	delete outIDs;
+}
+
+void UI::printInboundEdges()
+{
+	Vertex v = readVertex("Inbound edges for vertex: ");
+
+	// check if the vertex exits
+	if (this->graph->hasVertex(v) == false)
+	{
+		std::cout << "The given vertex " << v.getIndex() << " does not exits.\n";
+		return;
+	}
+
+	DynamicArray<int> *inIDs = this->graph->getInboundEdges(&v);
+
+	for (int i = 0; i < inIDs->getLength(); i++)
+		std::cout << inIDs->get(i) << " ";
+
+	delete inIDs;
+}
+
 void UI::start()
 {
 	while (true) {
 		this->cls();
 
-		std::cout << " 1 - print graph\n";
-		std::cout << " 2 - print number of vertices\n";
-		std::cout << " 3 - print number of edges\n";
-		std::cout << " 4 - print if exits edge\n";
-		std::cout << " 5 - print in degree\n";
-		std::cout << " 6 - print out degree\n";
-		std::cout << " 7 - print edge end points\n";
+		std::cout << " 1  - print graph\n";
+		std::cout << " 2  - print number of vertices\n";
+		std::cout << " 3  - print number of edges\n";
+		std::cout << " 4  - print if exits edge\n";
+		std::cout << " 5  - print in degree\n";
+		std::cout << " 6  - print out degree\n";
+		std::cout << " 7  - print edge end points\n";
+		std::cout << " 8  - add vertex\n";
+		std::cout << " 9  - remove vertex\n";
+		std::cout << " 10 - add edge\n";
+		std::cout << " 11 - remove edge\n";
+		std::cout << " 12 - change edge value\n";
+		std::cout << " 13 - print outbound edges of a vertex\n";
+		std::cout << " 14 - print inbound edges of a vertex\n";
 		std::cout << " 0 - Exit\n";
 
 		int command = this->readInt("Command: ");
@@ -160,6 +264,55 @@ void UI::start()
 			break;
 		case 7:
 			this->printEdgeEndPoints();
+
+			std::cout << std::endl;
+			system("PAUSE");
+
+			break;
+		case 8:
+			this->addVertex();
+
+			std::cout << std::endl;
+			system("PAUSE");
+
+			break;
+		case 9:
+			this->removeVertex();
+
+			std::cout << std::endl;
+			system("PAUSE");
+
+			break;
+		case 10:
+			this->addEdge();
+
+			std::cout << std::endl;
+			system("PAUSE");
+
+			break;
+		case 11:
+			this->removeEdge();
+
+			std::cout << std::endl;
+			system("PAUSE");
+
+			break;
+		case 12:
+			this->changeEdgeData();
+
+			std::cout << std::endl;
+			system("PAUSE");
+
+			break;
+		case 13:
+			this->printOutboundEdges();
+
+			std::cout << std::endl;
+			system("PAUSE");
+
+			break;
+		case 14:
+			this->printInboundEdges();
 
 			std::cout << std::endl;
 			system("PAUSE");
