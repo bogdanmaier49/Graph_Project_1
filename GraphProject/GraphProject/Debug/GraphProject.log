@@ -1,0 +1,24 @@
+﻿  UI.cpp
+e:\projects\graph\graphproject\graphproject\graph.h(45): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\ui.h(44): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\ui.cpp(87): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\ui.cpp(133): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\ui.cpp(149): warning C4018: '<' : signed/unsigned mismatch
+  Main.cpp
+e:\projects\graph\graphproject\graphproject\graph.h(45): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\ui.h(44): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\main.cpp(103): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\main.cpp(158): warning C4018: '<' : signed/unsigned mismatch
+  Graph.cpp
+e:\projects\graph\graphproject\graphproject\graph.h(45): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\graph.cpp(27): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\graph.cpp(64): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\graph.cpp(73): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\graph.cpp(82): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\graph.cpp(92): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\graph.cpp(105): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\graph.cpp(118): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\graph.cpp(136): warning C4018: '<' : signed/unsigned mismatch
+e:\projects\graph\graphproject\graphproject\graph.cpp(144): warning C4018: '<' : signed/unsigned mismatch
+  Generating Code...
+  GraphProject.vcxproj -> E:\Projects\Graph\GraphProject\Debug\GraphProject.exe
